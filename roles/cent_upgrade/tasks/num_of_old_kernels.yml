@@ -1,0 +1,6 @@
+---
+- name: set number of cached old kernels
+  command: /usr/bin/package-cleanup --oldkernels --count=2 -y
+  when: ansible_facts['distribution_major_version'] == "7"
+
+

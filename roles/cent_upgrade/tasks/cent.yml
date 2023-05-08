@@ -1,0 +1,10 @@
+---
+- name: upgrade all except time package
+  yum:
+    name: '*'
+    update_cache: true
+    state: latest
+    exclude: time*
+  when: ansible_facts['distribution_major_version'] == "7"
+  notify: Wait for server to restart
+
